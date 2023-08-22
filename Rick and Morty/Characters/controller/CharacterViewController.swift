@@ -5,6 +5,9 @@
 //  Created by Aruzhan Boranbay on 21.08.2023.
 //
 
+//token
+//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
+
 import UIKit
 import SnapKit
 import Kingfisher
@@ -13,7 +16,8 @@ class CharacterViewController: UIViewController {
     
     let apiCaller = APICaller()
     
-    let charactersData: [CharacterModel] = []
+    var charactersData: CharacterModel?
+//    let outDetail: ((Int) -> Void)?
 
     private lazy var titleName: UILabel = {
         let title = UILabel()
@@ -44,13 +48,13 @@ class CharacterViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-//        apiCaller?.fetchRequestCharacters(completion: { values in
-//            DispatchQueue.main.async {
-//                self.charactersData = values
-//                print("LIVE\(self.charactersData)")
-//                self.collectionView.reloadData()
-//            }
-//        })
+        apiCaller.fetchRequestCharacters(completion: { values in
+            DispatchQueue.main.async {
+                self.charactersData = values
+                print("LIVE\(self.charactersData)")
+                self.collectionView.reloadData()
+            }
+        })
         
     }
 
@@ -59,12 +63,19 @@ class CharacterViewController: UIViewController {
 //MARK: - collectionViewDataSource
 extension CharacterViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        if let countOfCards = charactersData?.results.count {
+            return countOfCards
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharactersCollectionViewCell.IDENTIFIER, for: indexPath) as! CharactersCollectionViewCell
         cell.layer.cornerRadius = 10
+        cell.setInfo(img: (charactersData?.results[indexPath.row].image)!, title: (charactersData?.results[indexPath.row].name)!)
+//        cell.outputDetail = {
+//            self.outDetail(indexPath.row)
+//        }
         return cell
     }
     
@@ -76,6 +87,14 @@ extension CharacterViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: /*collectionView.frame.size.width - 10*/150, height: 200)
     }
+    
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let cell = charactersData?.results[indexPath.row]
+//        let vc = DetailViewController()
+//        vc.itemData = cell
+//        print(vc)
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
 }
 
 //MARK: - setUpVies and setUpConstraints

@@ -7,9 +7,12 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class CharactersCollectionViewCell: UICollectionViewCell {
     static let IDENTIFIER = "CharactersCollectionViewCell"
+    
+//    var outputDetail: (() -> Void)?
     
     private lazy var img: UIImageView = {
         let img = UIImageView(image: UIImage(named: ""))
@@ -47,6 +50,14 @@ class CharactersCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setInfo(img: String, title: String) {
+        self.textTitle.text = title
+        
+        let url1 = URL(string: img)!
+        self.img.kf.setImage(with: url1)
+        
     }
 }
 

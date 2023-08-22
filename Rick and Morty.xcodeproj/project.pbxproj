@@ -17,6 +17,7 @@
 		84CB164F2A93745D0053CD71 /* CharactersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB164E2A93745D0053CD71 /* CharactersCollectionViewCell.swift */; };
 		84CB16512A9395E50053CD71 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB16502A9395E50053CD71 /* APICaller.swift */; };
 		84CB16532A9397210053CD71 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB16522A9397210053CD71 /* CharacterModel.swift */; };
+		84CB16552A9443BE0053CD71 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CB16542A9443BE0053CD71 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		84CB164E2A93745D0053CD71 /* CharactersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCollectionViewCell.swift; sourceTree = "<group>"; };
 		84CB16502A9395E50053CD71 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		84CB16522A9397210053CD71 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		84CB16542A9443BE0053CD71 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D5E4F59A65AE738266ED19B0 /* Pods-Rick and Morty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick and Morty.release.xcconfig"; path = "Target Support Files/Pods-Rick and Morty/Pods-Rick and Morty.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				84CB164C2A93725B0053CD71 /* CharacterViewController.swift */,
+				84CB16542A9443BE0053CD71 /* DetailViewController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				84CB16372A936F310053CD71 /* SceneDelegate.swift in Sources */,
 				84CB16532A9397210053CD71 /* CharacterModel.swift in Sources */,
 				84CB164F2A93745D0053CD71 /* CharactersCollectionViewCell.swift in Sources */,
+				84CB16552A9443BE0053CD71 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
