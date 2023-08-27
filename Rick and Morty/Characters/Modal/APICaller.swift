@@ -9,6 +9,7 @@ import Foundation
 
 struct APICaller{
     let url = "https://rickandmortyapi.com/api/character"
+    
     func fetchRequestCharacters(completion: @escaping (CharacterModel) -> Void){
         let urlString = "\(url)"
         

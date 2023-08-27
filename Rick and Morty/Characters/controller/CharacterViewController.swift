@@ -88,13 +88,25 @@ extension CharacterViewController: UICollectionViewDelegateFlowLayout{
         return CGSize(width: /*collectionView.frame.size.width - 10*/150, height: 200)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let cell = charactersData?.results[indexPath.row]
 //        let vc = DetailViewController()
 //        vc.itemData = cell
 //        print(vc)
 //        navigationController?.pushViewController(vc, animated: true)
-//    }
+        guard let cellCharacterModel = charactersData?.results[indexPath.row] else { return }
+        moveVc(dataCharacterModel: cellCharacterModel)
+//        let tapGester = UITapGestureRecognizer(target: self, action: #selector(moveVc))
+    }
+    
+    func moveVc(dataCharacterModel: Result) {
+        let vc = DetailViewController(resultData: dataCharacterModel)
+        navigationController?.pushViewController(vc, animated: true)
+//        vc.modalPresentationStyle = .fullScreen
+//        self.present(vc, animated: true, completion: nil)
+
+        print("Pressed \(vc)")
+    }
 }
 
 //MARK: - setUpVies and setUpConstraints
